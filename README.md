@@ -123,6 +123,17 @@ Built with a passion for pushing the boundaries of AI automation, web developmen
 
 ---
 
+## 💖 Support the Project
+
+If you find this project helpful and want to support the development of more advanced AI automation tools, consider sponsoring!
+
+- **GitHub Sponsors**: [Sponsor Minato95-ayu](https://github.com/sponsors/Minato95-ayu)
+- **Buy Me a Coffee**: [buymeacoffee.com/ayushkausik](https://www.buymeacoffee.com/ayushkausik)
+
+Your support helps keep the APIs running and funds future development of the roadmap features!
+
+---
+
 ## 📝 License
 
 This project is licensed under the MIT License - see the LICENSE file for details. 

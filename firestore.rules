@@ -1,0 +1,44 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return request.auth.uid == userId;
+    }
+
+    // Users — own data only, no self-upgrade
+    match /users/{userId} {
+      allow read: if isSignedIn() && isOwner(userId);
+      allow create: if isSignedIn() && isOwner(userId);
+      allow update: if isSignedIn() && isOwner(userId)
+        && !request.resource.data.diff(resource.data).affectedKeys()
+            .hasAny(['subscriptionTier', 'subscriptionStatus']);
+    }
+
+    // Content History — CRUD own content only
+    match /content_history/{contentId} {
+      allow read: if isSignedIn()
+        && resource.data.creatorId == request.auth.uid;
+      allow create: if isSignedIn()
+        && request.resource.data.creatorId == request.auth.uid
+        && request.resource.data.inputTopic is string
+        && request.resource.data.inputTopic.size() > 0;
+      allow update, delete: if isSignedIn()
+        && resource.data.creatorId == request.auth.uid;
+    }
+
+    // Templates — public read, own write
+    match /templates/{templateId} {
+      allow read: if isSignedIn()
+        && (resource.data.isPublic == true
+            || resource.data.createdBy == request.auth.uid);
+      allow create: if isSignedIn();
+      allow update, delete: if isSignedIn()
+        && resource.data.createdBy == request.auth.uid;
+    }
+  }
+}

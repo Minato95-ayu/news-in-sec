@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📰 NewsInSec - Viral Auto-Blogging System
 
-## Getting Started
+![NewsInSec Banner](https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&q=80)
 
-First, run the development server:
+**NewsInSec** is a next-generation AI-powered auto-blogging system that discovers breaking news, generates highly engaging content, sources real-world images, and publishes them seamlessly. Designed for modern content creators, marketers, and developers looking to automate viral content creation at scale.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**Created by Ayush Kausik** 🚀
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🌟 Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **🧠 Advanced AI Generation**: Powered by the latest Google Gemini 2.5 Flash models to write human-like, suspenseful, and highly engaging news articles.
+- **🌍 Real-Time Google Search Grounding**: Uses live web search to ensure all generated content is 100% factual and up-to-date with current events.
+- **🖼️ Automated Image Sourcing**: Intelligently identifies the core entity of a news story and fetches high-quality real images from Wikipedia/Wikimedia automatically.
+- **⚡ Next.js 15 & React 19**: Built on the bleeding edge of web technologies for lightning-fast performance and SEO optimization.
+- **💅 Beautiful UI/UX**: Crafted with Tailwind CSS, Framer Motion, and shadcn/ui for a premium, dark-mode first aesthetic featuring 3D elements and smooth animations.
+- **🌐 Niche Flexibility**: Generates content for ANY niche (Business, Crime, Gaming, etc.) in ANY language, including localized tones like "Hinglish".
 
-## Learn More
+## 🚀 Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
+- **Language**: TypeScript
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **UI Components**: [shadcn/ui](https://ui.shadcn.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **AI Engine**: [Google Gen AI SDK](https://github.com/google/genai-js) (Gemini 2.5 Flash)
+- **Icons**: [Lucide React](https://lucide.dev/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ Installation & Setup
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Minato95-ayu/news-in-sec.git
+   cd news-in-sec
+   ```
 
-## Deploy on Vercel
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **Environment Variables:**
+   Create a `.env.local` file in the root of your project and add your Gemini API Key:
+   ```env
+   GEMINI_API_KEY=your_google_gemini_api_key_here
+   ```
+   *(Note: Get your API key from Google AI Studio. The system uses the official `@google/genai` SDK with Google Search Grounding).*
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. **Run the Development Server:**
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+
+## 💡 How It Works (The 2-Step AI Architecture)
+
+To ensure the highest quality output and strict JSON formatting, NewsInSec uses a robust two-step AI pipeline:
+1. **Research & Draft (Search Grounded):** The AI uses Google Search to find the latest facts about a requested topic and drafts a compelling, suspenseful article.
+2. **Strict Formatting:** The drafted article is passed back through the AI with a strict `application/json` mime-type schema to reliably output SEO tags, hooks, and image search keywords without formatting errors.
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/Minato95-ayu/news-in-sec/issues).
+
+## 📝 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+---
+*Built with ❤️ by Ayush Kausik*
